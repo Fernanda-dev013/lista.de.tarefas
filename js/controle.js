@@ -1,3 +1,4 @@
+let contador = 0;
 let input = document.getElementById('inputTarefa');
 let btnAdd = document.getElementById('btn-add');
 let main = document.getElementById('arealista');
@@ -5,7 +6,9 @@ let main = document.getElementById('arealista');
 function addTarefa() {
 let valorInput = input.value;
 if((valorInput!=="") && (valorInput!==null) && (valorInput!==undefined)){
-  let novoItem = `<div class="itens">
+  
+  ++contador;
+  let novoItem = `<div id="${contador}" class="itens">
       <div class="icone">
         <i class="mdi mdi-circle-outline"></i>
       </div>
@@ -13,7 +16,7 @@ if((valorInput!=="") && (valorInput!==null) && (valorInput!==undefined)){
         ${valorInput}
       </div>
       <div class="botao">
-        <button class="delete"><i class="mdi mdi-delete"></i> Deletar</button>
+        <button onclick="deletar(${contador})" class="delete"><i class="mdi mdi-delete"></i> Deletar</button>
       </div>
     </div>`;
     
@@ -26,6 +29,12 @@ if((valorInput!=="") && (valorInput!==null) && (valorInput!==undefined)){
 
 }
 }
+
+function deletar(id){
+  var tarefa = document.getElementById(id);
+  tarefa.remove();
+}
+
 
 input.addEventListener("keyup",function(event){
   //se teclou enter (13)
