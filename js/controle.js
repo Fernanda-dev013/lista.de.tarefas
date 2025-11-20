@@ -3,7 +3,7 @@ let input = document.getElementById('inputTarefa');
 let btnAdd = document.getElementById('btn-add');
 let main = document.getElementById('arealista');
 
-function addTarefa() {
+function addTarefa(){
 let valorInput = input.value;
 if((valorInput!=="") && (valorInput!==null) && (valorInput!==undefined)){
   
